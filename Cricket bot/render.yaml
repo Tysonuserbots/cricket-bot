@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: cricket-telegram-bot
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python -m cricket_telegram_bot
+    envVars:
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: CRICKET_PROVIDER
+        value: demo
+      - key: CRICAPI_KEY
+        sync: false
+
