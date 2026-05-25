@@ -63,9 +63,10 @@ The bot polls Telegram, so the clean production option is a Render Background Wo
 4. Use these settings:
 
 ```text
+Root Directory: leave blank
 Runtime: Python
 Build Command: pip install -r requirements.txt
-Start Command: python -m cricket_telegram_bot
+Start Command: python main.py
 Instance Type: Free
 ```
 
@@ -84,6 +85,8 @@ CRICKET_PROVIDER=auto
 ```
 
 Do not add your token to GitHub. Add it only in Render's environment variable settings.
+
+If Render says it cannot find `requirements.txt`, your files are probably inside a subfolder in GitHub. `requirements.txt`, `main.py`, and `render.yaml` must be in the repo root on the `main` branch, and Render's **Root Directory** should be blank.
 
 Free Render Web Services can spin down after 15 minutes without inbound HTTP traffic. If that happens, the bot may stop answering until the service wakes again. For an always-on bot, use a paid instance or a Background Worker.
 
